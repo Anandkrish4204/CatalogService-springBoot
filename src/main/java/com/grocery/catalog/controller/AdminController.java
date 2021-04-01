@@ -1,6 +1,7 @@
 package com.grocery.catalog.controller;
 
 import com.grocery.catalog.model.User;
+import com.grocery.catalog.model.UserListResponse;
 import com.grocery.catalog.service.CatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ public class AdminController {
     private CatalogService catalogService;
 
     @GetMapping("/users")
-    public List<User> getAllUsers(){
+    public UserListResponse getAllUsers(){
         return catalogService.getAllUserFromUserService();
     }
 }
