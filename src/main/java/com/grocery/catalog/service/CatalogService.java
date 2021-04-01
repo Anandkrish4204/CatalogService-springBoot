@@ -19,7 +19,7 @@ import java.util.List;
 @Service
 public class CatalogService {
 
-    private String url = "http://USERMICROSERVICE/user/users";
+    private static final String endpoint = "http://USERMICROSERVICE/user/users";
 
     @Autowired
     private ProductRepository productRepository;
@@ -39,7 +39,7 @@ public class CatalogService {
     private List<User> getUserlist(){
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        return restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<>(headers), new ParameterizedTypeReference<List<User>>() {
+        return restTemplate.exchange(endpoint, HttpMethod.GET, new HttpEntity<>(headers), new ParameterizedTypeReference<List<User>>() {
         }).getBody();
     }
 

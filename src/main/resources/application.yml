@@ -3,9 +3,5 @@ server:
 spring:
   application:
     name: catalogmicroservice
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    prefer-ip-address: true
+  config:
+    import: optional:configserver:http://localhost:8888
